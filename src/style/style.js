@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const GlobaStyle = createGlobalStyle`
       * {
          box-sizing: border-box;
+         font-family: "Libre Caslon Text", serif;
          margin: 0;
          padding: 0;
       };
@@ -21,15 +22,16 @@ export default GlobaStyle;
 export const Conteiner_nav = styled.div`
 
       height: 100%;
-      width: 5rem;
+      width: 7rem;
       display: flex;
       justify-content: space-between;
-      background-color: #FFDEAD;
-      border-top-right-radius: 10rem;
-      border-bottom-right-radius: 10rem;
 
       nav {
-         width: 100%;
+         height: 95%;
+         width: 100%;   
+         margin: 1rem;
+         border-radius: 10em;
+         background-color: #2c1810;
          display: flex;
          align-content: center;
          justify-content: center;
@@ -57,6 +59,7 @@ export const Conteiner_nav = styled.div`
          text-decoration: none;
          color: #FFF8DC;
          font-size: 1.5rem;
+         transition: all ease 400ms;
          font-weight: bold;
       }
 `;

@@ -17,10 +17,10 @@ function App() {
 
 
   const IconesNav = {
-    home: <TiHome size={35} color={actinveIcon === "home" ? '#e28e20' : '#DEB887'}/>,
-    book: <SiBookstack size={35} color={actinveIcon === "book" ? '#e28e20' : '#DEB887'}/>,
-    heart: <AiFillHeart size={35} color={actinveIcon === "heart" ? '#e28e20' : '#DEB887'}/>,
-    settings: <IoMdSettings size={35}color={actinveIcon === "settings" ? '#e28e20' : '#DEB887'}/>,
+    home: <TiHome size={35} color={actinveIcon === "home" ? '#CD853F' : '#DEB887'}/>,
+    book: <SiBookstack size={35} color={actinveIcon === "book" ? '#CD853F' : '#DEB887'}/>,
+    heart: <AiFillHeart size={35} color={actinveIcon === "heart" ? '#CD853F' : '#DEB887'}/>,
+    settings: <IoMdSettings size={35}color={actinveIcon === "settings" ? '#CD853F' : '#DEB887'}/>,
   }
 
 
