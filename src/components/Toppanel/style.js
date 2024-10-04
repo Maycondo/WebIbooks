@@ -28,8 +28,8 @@ export const Inputsearch = styled.div`
             background-color: transparent;
             color: #D2B48C;
             border: none;
+            z-index: 1;
         }
-
 
         input {
             width: 70%;
@@ -41,6 +41,7 @@ export const Inputsearch = styled.div`
             font-weight: bolder;
             background-color: #DEB887;
             color: white;
+            z-index: 1;
         };
 
         input:focus {
@@ -58,7 +59,24 @@ export const Inputsearch = styled.div`
             background-color: transparent;
             color: #D2B48C;
             border: none;
-        }      
+            z-index: 1;
+        }
+
+        div {
+            position: absolute;
+            top: 1%;
+            height:  40rem;
+            width: 70rem;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 8%;
+            border-top-left-radius: 8%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #F5F5DC;
+            display: flex;
+            align-items: center;
+            z-index: 0;
+        }
 `;
 
 export const Perfiluser = styled.div.attrs(() => ({
@@ -91,7 +109,7 @@ export const Perfiluser = styled.div.attrs(() => ({
             cursor: pointer;
             padding: 0.5rem 0rem;
             border-radius: 50%;
-            background-color: #CD853F;
+            background-color: #DEB887;
             display: flex;
             text-align: center;
             align-content: center;
@@ -102,38 +120,56 @@ export const Perfiluser = styled.div.attrs(() => ({
 
         section:hover {
             transition: all ease 400ms;
-            background-color: #DEB887;
+            background-color: #CD853F;
         };
 
         div {
             position: absolute;
             top: 70px; 
             right: 5%;
-            border-radius: 15px;
-            height: 200px;
+            height: 180px;
             width: 200px;
-            background-color: white;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background-color: #F5F5DC;
             padding: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 2;
         }
 
         ul {
-            margin: 1rem;
+            margin: 0%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.5rem;
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
         li {
+            padding: 1rem;
+            height: 1rem;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 0%;
+            border-radius: 5px;
             font-size: 1rem;
             font-weight: bold;
+            font-family: "Poppins", sans-serif;
             color: #2c1810;
             cursor: pointer;
+            transition: all ease 400ms;
+        }
+
+        li:hover {
+            color: #F5F5DC;
+            transition: all ease 400ms;
+            background-color:#DEB887;
         }
 `;
 
