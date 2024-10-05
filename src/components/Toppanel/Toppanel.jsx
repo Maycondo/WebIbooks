@@ -1,5 +1,4 @@
 import Topbar, { Inputsearch , Perfiluser } from "./style.js"
-// React
 import { motion } from "framer-motion"
 
 // React Server Components
@@ -20,7 +19,7 @@ export default function Toppanel() {
   const inputRef = useRef(null);
   const settingsRef = useRef(null);
   const searchRef = useRef(null);
-  
+
   const toggleSenttins = () => {
     setshowSettings(!showSettings)
   }

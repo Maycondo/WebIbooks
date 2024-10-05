@@ -25,16 +25,15 @@ export default GlobaStyle;
 export const Conteiner_nav = styled.div`
 
       height: 100%;
-      width: 10rem;
+      width: 6rem;
       display: flex;
       justify-content: space-between;
 
       nav {
-         height: 100%;
-         margin: 0rem 0.5rem;
-         width: 5rem;   
-         border-left: solid 4px #DEB887;
-         border-right: solid 4px #DEB887;
+         height: 95%;
+         margin: 1rem 1rem;
+         border-radius: 50px;
+         width: 5rem;
          background-color: #2c1810;
          display: flex;
          align-content: center;
@@ -44,7 +43,7 @@ export const Conteiner_nav = styled.div`
       ul {
          margin: 2rem 0rem;
          width: 100%;
-         gap: 7rem;
+         gap: 5rem;
          list-style: none;
          display: flex;
          flex-direction: column;
@@ -53,13 +52,20 @@ export const Conteiner_nav = styled.div`
       }
 
       li {
-         width: 100%;
          display: flex;
          justify-content: center;
          align-items: center;
+         border-top-left-radius: 50px;
+         border-bottom-left-radius: 50px;
       }
 
       a {
+         height: 4rem;
+         width: 4rem;
+         border-radius: 50%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
          text-decoration: none;
          color: #FFF8DC;
          font-size: 1.5rem;
