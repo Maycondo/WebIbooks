@@ -1,7 +1,50 @@
 
 
-.panel-home {
-    height: 100%;
-    width: 100%;
-    display: flex;
+.container {
+  height: 47%;
+  width: 100%;
+  display: flex;
+
 }
+
+.container_cards {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card {
+    width: 250px;
+    height: 400px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+  }
+
+  .card.active {
+    transform: scale(1.2);
+    z-index: 1;
+  }
+  
+  .card img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+  }
+  
+  .card h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .card p {
+    margin-top: 5px;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  

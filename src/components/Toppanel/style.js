@@ -28,7 +28,7 @@ export const Inputsearch = styled.div`
             background-color: transparent;
             color: #D2B48C;
             border: none;
-            z-index: 1;
+            z-index: 3;
         }
 
         input {
@@ -41,7 +41,7 @@ export const Inputsearch = styled.div`
             font-weight: bolder;
             background-color: #DEB887;
             color: white;
-            z-index: 1;
+            z-index: 3;
         };
 
         input:focus {
@@ -59,7 +59,7 @@ export const Inputsearch = styled.div`
             background-color: transparent;
             color: #D2B48C;
             border: none;
-            z-index: 1;
+            z-index: 3;
         }
 
         div {
@@ -75,7 +75,7 @@ export const Inputsearch = styled.div`
             background-color: #F5F5DC;
             display: flex;
             align-items: center;
-            z-index: 0;
+            z-index: 2;
         }
 `;
 

@@ -51,20 +51,20 @@ export default function App() {
     <>
       <GlobalStyle />
         <Conteiner_nav>
-          <motion.div   initial={{ x: '-100%' }} animate={{ x: 0 }}transition={{ type: 'spring', stiffness: 50 }}>
-            <nav>
-                  <ul>
-                      {Object.keys(IconesNav).map((key) => (
-                        <li key={key}>
-                            <a href={`#${key}`} onClick={() => setActinveIcon(key) } style={ iconStyles(key)}  >
-                              {IconesNav[key]}
-                            </a>
-                        </li>
-                      ))}
-                  </ul>
-              </nav>
+            <motion.div   initial={{ x: '-100%' }} animate={{ x: 0 }}transition={{ type: 'spring', stiffness: 50 }}>
+              <nav>
+                    <ul>
+                        {Object.keys(IconesNav).map((key) => (
+                          <li key={key}>
+                              <a href={`#${key}`} onClick={() => setActinveIcon(key) } style={ iconStyles(key)}  >
+                                {IconesNav[key]}
+                              </a>
+                          </li>
+                        ))}
+                    </ul>
+                </nav>
             </motion.div>
-        </Conteiner_nav> 
+          </Conteiner_nav> 
         <Conteiner_painel>
           <Toppanel />
           <Panelhome/>

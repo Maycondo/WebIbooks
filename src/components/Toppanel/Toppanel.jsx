@@ -58,7 +58,7 @@ export default function Toppanel() {
         <Topbar>
           <Inputsearch ref={searchRef}>
               <article onClick={() => FocusInput()} ><PiBooksFill/></article>
-                <input type="text" ref={inputRef} placeholder="Search your Ibook" onClick={toggleSearch}/>
+                <input type="text" ref={inputRef} placeholder="Search your Ibook name, auhor, edition" onClick={toggleSearch}/>
                 {showSearch && (
                     <motion.div initial="hidden" animate="visible" variants={{hidden: { opacity: 0, y: -20 },visible: { opacity: 1, y: 0, transition: { delay: 0.2 } }}}>
 
