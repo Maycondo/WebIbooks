@@ -2,14 +2,10 @@ import { useEffect, useState } from 'react';
 import "./style.css"
 
 
-
-
-
-
     const Panelhome = () => {
 
 
-        
+        const [cardClick, setClickCarde] = useState(null)
         const [cardIndex, setCardIndex] = useState(0);
         const [ibooks] = useState([
             { title: "Beauty and the Beast", author: "Disney", img: "https://m.media-amazon.com/images/I/91cFpFUJFnL._AC_UF1000,1000_QL80_.jpg" },
@@ -28,6 +24,11 @@ import "./style.css"
         }, [cardIndex , ibooks.length])
 
 
+        const handCardClick = (index) => {
+            setClickCarde(index === cardIndex ? null : index)
+        }
+
+
   return (
     <>
     <div className="container">
@@ -36,7 +37,7 @@ import "./style.css"
     <div className="container_cards">
         {ibooks.map((book, index) => (
             <div key={index}>
-                <div className={`card ${index === cardIndex ? 'active' : ''}`}>
+                <div className={`card ${index === cardClick ? 'clicked' : ''} ${index === cardIndex ? 'active' : ''}`} onClick={() => handCardClick(index)}>
                     <img src={book.img} alt={book.title} style={{ width: '100%', borderRadius: '10px' }} />
                     <h3>{book.title}</h3>
                     <p>{book.author}</p>

@@ -19,18 +19,23 @@
     text-align: center;
     padding: 15px;
     border-radius: 15px;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .card.active {
     transform: scale(1.2);
     z-index: 1;
   }
+
+  .card.clicked {
+    transform: scale(1.2); 
+}
   
   .card img {
     width: 250px;
     height: 300px;
     object-fit: cover;
+    cursor: pointer;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;

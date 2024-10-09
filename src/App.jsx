@@ -6,7 +6,7 @@ import GlobalStyle, { Conteiner_nav, Conteiner_painel }  from './style/style.js'
 
 /* Importação de icones para nav  */
 import { useEffect, useState } from 'react';
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion';
 import { TiHome } from "react-icons/ti";
 import { SiBookstack } from "react-icons/si";
 import { AiFillHeart } from "react-icons/ai";
@@ -51,19 +51,19 @@ export default function App() {
     <>
       <GlobalStyle />
         <Conteiner_nav>
-            <motion.div   initial={{ x: '-100%' }} animate={{ x: 0 }}transition={{ type: 'spring', stiffness: 50 }}>
               <nav>
                     <ul>
                         {Object.keys(IconesNav).map((key) => (
-                          <li key={key}>
-                              <a href={`#${key}`} onClick={() => setActinveIcon(key) } style={ iconStyles(key)}  >
-                                {IconesNav[key]}
-                              </a>
+                          <li key={key} style={ iconStyles(key)}>
+                              <motion.div whileHover={{ scale: 1.2, y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
+                                <a href={`#${key}`} onClick={() => setActinveIcon(key) }>
+                                  {IconesNav[key]}
+                                </a>
+                            </motion.div>
                           </li>
                         ))}
                     </ul>
                 </nav>
-            </motion.div>
           </Conteiner_nav> 
         <Conteiner_painel>
           <Toppanel />

@@ -23,17 +23,14 @@ const GlobaStyle = createGlobalStyle`
 export default GlobaStyle;
 
 export const Conteiner_nav = styled.div`
-
       height: 100%;
       width: 6rem;
       display: flex;
       justify-content: space-between;
 
       nav {
-         height: 95%;
-         margin: 1rem 1rem;
-         border-radius: 50px;
-         width: 5rem;
+         height: 100%;
+         width: 85%;
          background-color: #2c1810;
          display: flex;
          align-content: center;
@@ -52,17 +49,18 @@ export const Conteiner_nav = styled.div`
       }
 
       li {
+         height: auto;
+         width: 100%;
          display: flex;
          justify-content: center;
          align-items: center;
-         border-top-left-radius: 50px;
-         border-bottom-left-radius: 50px;
       }
 
       a {
          height: 4rem;
          width: 4rem;
-         border-radius: 50%;
+         border-top-left-radius: 40%;
+         border-bottom-left-radius: 40%;
          display: flex;
          justify-content: center;
          align-items: center;
@@ -71,7 +69,6 @@ export const Conteiner_nav = styled.div`
          font-size: 1.5rem;
          transition: all ease 400ms;
          font-weight: bold;
-         animation: pulse 1.5s infinite;
       }
 
       @keyframes pulse {
