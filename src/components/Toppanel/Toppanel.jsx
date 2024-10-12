@@ -3,7 +3,6 @@ import { motion } from "framer-motion"
 
 // React Server Components
 import { useRef, useState, useEffect } from 'react'
-
 import { PiBooksFill } from "react-icons/pi";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineMore } from "react-icons/ai";
@@ -79,7 +78,7 @@ export default function Toppanel() {
                             <li>Configurações</li>
                             <li>Sair</li>
                           </ul>
-                    </motion.div>
+                      </motion.div>
                     )}
           </Perfiluser>
         </Topbar>

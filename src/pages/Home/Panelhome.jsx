@@ -15,18 +15,20 @@ import "./style.css"
             
         ]);
 
+        const handleCardClick = (index) => {
+            setClickCarde(index === cardIndex ? null : index)
+            setCardIndex(index);
+        }
+
         useEffect(() => {
             const CardAnimetion = setTimeout(() => {
                 setCardIndex((prevIndex) => (prevIndex + 1)  % ibooks.length);
+                setClickCarde(false);
             }, 3000);
 
-            return () => clearInterval(CardAnimetion)
+            return () => clearTimeout(CardAnimetion)
         }, [cardIndex , ibooks.length])
 
-
-        const handCardClick = (index) => {
-            setClickCarde(index === cardIndex ? null : index)
-        }
 
 
   return (
@@ -37,7 +39,7 @@ import "./style.css"
     <div className="container_cards">
         {ibooks.map((book, index) => (
             <div key={index}>
-                <div className={`card ${index === cardClick ? 'clicked' : ''} ${index === cardIndex ? 'active' : ''}`} onClick={() => handCardClick(index)}>
+                <div className={`card ${index === cardClick ? 'clicked' : ''} ${index === cardIndex ? 'active' : ''}`} onClick={() => handleCardClick(index)}>
                     <img src={book.img} alt={book.title} style={{ width: '100%', borderRadius: '10px' }} />
                     <h3>{book.title}</h3>
                     <p>{book.author}</p>

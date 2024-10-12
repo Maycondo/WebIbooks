@@ -66,7 +66,7 @@ export const Inputsearch = styled.div`
             position: absolute;
             top: 1%;
             height:  40rem;
-            width: 70rem;
+            width: 75rem;
             border-bottom-right-radius: 10px;
             border-bottom-left-radius: 10px;
             border-top-right-radius: 8%;
@@ -109,7 +109,7 @@ export const Perfiluser = styled.div.attrs(() => ({
             cursor: pointer;
             padding: 0.5rem 0rem;
             border-radius: 50%;
-            background-color: #DEB887;
+            background-color: #CD853F;
             display: flex;
             text-align: center;
             align-content: center;

@@ -22,20 +22,20 @@ const GlobaStyle = createGlobalStyle`
 `;
 export default GlobaStyle;
 
-export const Conteiner_nav = styled.div`
-      height: 100%;
-      width: 6rem;
-      display: flex;
-      justify-content: space-between;
-
-      nav {
-         height: 100%;
-         width: 85%;
-         background-color: #2c1810;
-         display: flex;
+export const Conteiner_nav = styled.nav`
+      
+         height: 40rem;
+         z-index: 5;
+         width: 22rem;
+         position: fixed;
+         border-top-right-radius: 10px;
+         border-bottom-right-radius: 10px;
+         border-bottom-left-radius: 10px;
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         background-color: #F5F5DC;
          align-content: center;
          justify-content: center;
-      }
+
 
       ul {
          margin: 2rem 0rem;
