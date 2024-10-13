@@ -1,16 +1,10 @@
 import Toppanel from "./components/Toppanel/Toppanel.jsx";
 import Panelhome from "./pages/Home/Panelhome.jsx";
 import Loader from './components/Loader/Loader.jsx';
+import { motion, AnimatePresence } from 'framer-motion';
 import GlobalStyle, { Conteiner_nav, Conteiner_painel } from './style/style.js'; 
 import './style/style.css';
-
-/* Importação de icones para nav  */
 import { useEffect, useState } from 'react';
-import { motion } from "framer-motion";
-import { TiHome } from "react-icons/ti";
-import { SiBookstack } from "react-icons/si";
-import { AiFillHeart } from "react-icons/ai";
-import { IoMdSettings } from "react-icons/io";
 
 
 const useLoader = (delay) => {
@@ -24,47 +18,30 @@ const useLoader = (delay) => {
   return loading;
 };
 
-const variants = {
-  open: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut",
-    },
-  },
-  closed: {
-    scale: 0.8,
-    opacity: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut",
-    },
-  },
-};
 
 
 
 export default function App() {
   const [navAnimation, setNavAnimation] = useState(false);
-  const [activeIcon, setActiveIcon] = useState("home");
+  const [activeName, setActiveName] = useState("Inicio");
   const loading = useLoader(4000);
 
   const toggleNav = () => {
     setNavAnimation(!navAnimation);
   };
 
-  const iconStyles = (key) => ({
-    backgroundColor: activeIcon === key ? '#FFEFD5' : 'transparent',
+  const itemStyles = (key) => ({
     cursor: 'pointer', 
+    fontWeight: activeName === key ? 'bold' : 'normal',
     transition: 'background-color 0.3s',
+    color: activeName === key ? '#CD853F' : '#DEB887', 
   });
 
-  const IconesNav = {
-    home: <TiHome size={35} color={activeIcon === "home" ? '#CD853F' : '#DEB887'} />,
-    book: <SiBookstack size={35} color={activeIcon === "book" ? '#CD853F' : '#DEB887'} />,
-    heart: <AiFillHeart size={35} color={activeIcon === "heart" ? '#CD853F' : '#DEB887'} />,
-    settings: <IoMdSettings size={35} color={activeIcon === "settings" ? '#CD853F' : '#DEB887'} />,
+  const itensNav = {
+    Inicio: 'Inicio', 
+    book: 'Livros',
+    heart: 'Favoritos',
+    settings: 'Configurações',
   };
 
   if (loading) {
@@ -81,27 +58,30 @@ export default function App() {
         <span></span>
         <span></span>
       </label>
-
-      <motion.div
-        initial={false}
-        style={{ position: 'fixed', zIndex: 5 }}
-        className="conteiner_nav"
-        animate={navAnimation ? "open" : "closed"}
-        variants={variants}
-      >
-        <Conteiner_nav>
-          <ul>
-            {Object.keys(IconesNav).map((key) => (
-              <li key={key} style={iconStyles(key)}>
-                <a href={`#${key}`} onClick={() => setActiveIcon(key)}>
-                  {IconesNav[key]}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Conteiner_nav>
-      </motion.div>
-
+      <AnimatePresence>
+      { navAnimation && (
+          <motion.div
+            initial={{ y: '-100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '-100%' }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: '#f5f3dc', zIndex: "5" }}
+          >
+              <Conteiner_nav>
+                <ul>
+                  {Object.keys(itensNav).map((key) => (
+                    <li key={key}>
+                      <a href={`#${key}`} onClick={() => setActiveName(key)} style={itemStyles(key)}>
+                        {itensNav[key]}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+            </Conteiner_nav>
+            </motion.div>
+          )
+        }
+        </AnimatePresence>
       <Conteiner_painel>
         <Toppanel />
         <Panelhome />

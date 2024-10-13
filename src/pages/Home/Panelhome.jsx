@@ -12,9 +12,12 @@ import "./style.css"
             { title: "Fire and Blood", author: "George R. R. Martin", img: "https://m.media-amazon.com/images/I/81pa0QoG6ML._AC_UF1000,1000_QL80_.jpg" },
             { title: "The Chronicles of Narnia", author: "C. S. Lewis", img: "https://m.media-amazon.com/images/I/81KxkoyrxBL._AC_UF1000,1000_QL80_.jpg" },
             { title: "Deadpool Samurai", author: "Marvel", img: "https://m.media-amazon.com/images/I/911rBJQtB5L._UF894,1000_QL80_.jpg" },
-            
+            { title: "The Hobbit", author: "J.R.R. Tolkien", img: "https://m.media-amazon.com/images/I/91b0C2YNSrL._AC_UF1000,1000_QL80_.jpg" },
+            { title: "Harry Potter and the Philosopher's Stone", author: "J.K. Rowling", img: "https://m.media-amazon.com/images/I/81YOuOGFCJL._AC_UF1000,1000_QL80_.jpg" },
+            { title: "1984", author: "George Orwell", img: "https://m.media-amazon.com/images/I/71kxa1-0mfL._AC_UF1000,1000_QL80_.jpg" },
+            { title: "The Great Gatsby", author: "F. Scott Fitzgerald", img: "https://m.media-amazon.com/images/I/71FTb9X6wsL._AC_UF1000,1000_QL80_.jpg" }
         ]);
-
+        
         const handleCardClick = (index) => {
             setClickCarde(index === cardIndex ? null : index)
             setCardIndex(index);

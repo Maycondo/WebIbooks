@@ -24,23 +24,19 @@ export default GlobaStyle;
 
 export const Conteiner_nav = styled.nav`
       
-         height: 40rem;
+         height: 100%;
          z-index: 5;
-         width: 22rem;
+         width: 100%;
          position: fixed;
-         border-top-right-radius: 10px;
-         border-bottom-right-radius: 10px;
-         border-bottom-left-radius: 10px;
-         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
          background-color: #F5F5DC;
          align-content: center;
          justify-content: center;
 
 
       ul {
-         margin: 2rem 0rem;
+         height: 90%;
          width: 100%;
-         gap: 5rem;
+         gap: 7rem;
          list-style: none;
          display: flex;
          flex-direction: column;
@@ -52,21 +48,20 @@ export const Conteiner_nav = styled.nav`
          height: auto;
          width: 100%;
          display: flex;
-         justify-content: center;
-         align-items: center;
+         justify-content: start;
+         align-items: start;
       }
 
       a {
          height: 4rem;
          width: 4rem;
-         border-top-left-radius: 40%;
-         border-bottom-left-radius: 40%;
+         margin: 0rem 1rem;
          display: flex;
-         justify-content: center;
-         align-items: center;
+         justify-content: start;
+         text-align: start;
          text-decoration: none;
          color: #FFF8DC;
-         font-size: 1.5rem;
+         font-size: 7rem;
          transition: all ease 400ms;
          font-weight: bold;
       }

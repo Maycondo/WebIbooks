@@ -160,7 +160,6 @@ export const Perfiluser = styled.div.attrs(() => ({
             border-radius: 5px;
             font-size: 1rem;
             font-weight: bold;
-            font-family: "Poppins", sans-serif;
             color: #2c1810;
             cursor: pointer;
             transition: all ease 400ms;
