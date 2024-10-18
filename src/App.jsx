@@ -1,8 +1,7 @@
-import Toppanel from "./components/Toppanel/Toppanel.jsx";
 import Panelhome from "./pages/Home/Panelhome.jsx";
 import Loader from './components/Loader/Loader.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
-import GlobalStyle, { Conteiner_nav, Conteiner_painel } from './style/style.js'; 
+import GlobalStyle, { Conteiner_nav, Conteiner_painel } from './style/style.js';
 import './style/style.css';
 import { useEffect, useState } from 'react';
 
@@ -18,10 +17,8 @@ const useLoader = (delay) => {
   return loading;
 };
 
-
-
-
 export default function App() {
+
   const [navAnimation, setNavAnimation] = useState(false);
   const [activeName, setActiveName] = useState("Inicio");
   const loading = useLoader(4000);
@@ -29,6 +26,10 @@ export default function App() {
   const toggleNav = () => {
     setNavAnimation(!navAnimation);
   };
+
+  const resttiggleNav = () => {
+    setNavAnimation(false);
+  }
 
   const itemStyles = (key) => ({
     cursor: 'pointer', 
@@ -44,6 +45,22 @@ export default function App() {
     settings: 'Configurações',
   };
 
+
+  const renderPanelContent = () => {
+      switch (activeName) {
+          case 'Inicio':
+            return <Panelhome />;
+          case 'book':
+            return <div>Livros Component</div>;
+          case 'heart':
+            return <div>Favoritos Component</div>;
+          case 'settings':
+            return <div>Configurações Component</div>;
+          default:
+            return <Panelhome />;
+      }
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -51,13 +68,12 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
-
-      <input id="burger-checkbox" type="checkbox" onClick={toggleNav} />
-      <label className="burger" htmlFor="burger-checkbox">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
+        <input id="burger-checkbox" type="checkbox" onClick={toggleNav} />
+          <label className="burger" htmlFor="burger-checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
       <AnimatePresence>
       { navAnimation && (
           <motion.div
@@ -67,11 +83,11 @@ export default function App() {
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: '#f5f3dc', zIndex: "5" }}
           >
-              <Conteiner_nav>
+             <Conteiner_nav>
                 <ul>
                   {Object.keys(itensNav).map((key) => (
                     <li key={key}>
-                      <a href={`#${key}`} onClick={() => setActiveName(key)} style={itemStyles(key)}>
+                      <a href={`#${key}`} onClick={() => { setActiveName(key); resttiggleNav(); } } style={itemStyles(key)}>
                         {itensNav[key]}
                       </a>
                     </li>
@@ -83,8 +99,7 @@ export default function App() {
         }
         </AnimatePresence>
       <Conteiner_painel>
-        <Toppanel />
-        <Panelhome />
+        {renderPanelContent()}
       </Conteiner_painel>
     </>
   );
