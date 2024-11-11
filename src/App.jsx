@@ -87,9 +87,9 @@ export default function App() {
                 <ul>
                   {Object.keys(itensNav).map((key) => (
                     <li key={key}>
-                      <a href={`#${key}`} onClick={() => { setActiveName(key); resttiggleNav(); } } style={itemStyles(key)}>
-                        {itensNav[key]}
-                      </a>
+                        <a href={`#${key}`} onClick={() => { setActiveName(key); resttiggleNav(); } } style={itemStyles(key)}>
+                          {itensNav[key]}
+                        </a>
                     </li>
                   ))}
                 </ul>

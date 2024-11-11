@@ -9,6 +9,7 @@ const Panelhome = () => {
 
         const [cardClick, setCardClick] = useState(null)
         const [cardIndex, setCardIndex] = useState(0);
+        
         const [ibooks] = useState([
             { title: "Beauty and the Beast", author: "Disney", img: "https://m.media-amazon.com/images/I/91cFpFUJFnL._AC_UF1000,1000_QL80_.jpg" },
             { title: "Fire and Blood", author: "George R. R. Martin", img: "https://m.media-amazon.com/images/I/81pa0QoG6ML._AC_UF1000,1000_QL80_.jpg" },
@@ -59,9 +60,11 @@ const Panelhome = () => {
         return (
             <> 
                <Toppanel />
-                <div className="container">
-                    {}
-                </div>
+                    <div className="container">
+                        {
+                            
+                        }
+                    </div>
                 <motion.div
                     className="container_cards flex space-x-8"
                     style={{ width: 'max-content' }}  

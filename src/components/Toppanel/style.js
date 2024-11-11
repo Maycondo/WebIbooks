@@ -94,6 +94,7 @@ export const Perfiluser = styled.div.attrs(() => ({
             width: 2.5rem;
             height: 2.5rem;
             border-radius: 50%;
+            cursor: pointer;
         }
 
         h1 {
