@@ -15,7 +15,7 @@
 
 .card {
     width: 250px;
-    height: 400px;
+    height: 300px;
     text-align: center;
     padding: 15px;
     border-radius: 15px;
@@ -43,8 +43,8 @@
   
   .card h3 {
     margin-top: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 400;
   }
   
   .card p {
