@@ -5,11 +5,13 @@ import { motion } from 'framer-motion';
 import "./style.css";
 
 const Panelhome = () => {
-    const [cardClick, setCardClick] = useState(null);
+
+    const [cardClick, setCardClick] = useState(null); 
     const [cardIndex, setCardIndex] = useState(0);
     const [ibooks, setBooks] = useState([]);
 
     useEffect(() => {
+        // Uma função assincrona para fazer um requisão consumindo API de livros 
         const fetchBooks = async () => {
             try {
                 const response = await axios.get('https://www.googleapis.com/books/v1/volumes', {
@@ -41,12 +43,15 @@ const Panelhome = () => {
 
                 // Define a lista de livros repetida três vezes para animação
                 setBooks([...booksWithRatings, ...booksWithRatings, ...booksWithRatings]);
+                
+            // Caso não consiguir buscar os Livros, a parecera um ERRO no tela.
             } catch (error) {
                 console.error('Erro ao buscar livros:', error);
             }
         };
 
         fetchBooks();
+
     }, []);
 
     const handleCardClick = (index) => {
@@ -74,24 +79,15 @@ const Panelhome = () => {
             <div className="container">
                 {/* Adicione qualquer conteúdo adicional aqui */}
             </div>
-            <motion.div
-                className="container_cards flex space-x-8"
-                style={{ width: 'max-content' }}  
-                {...slideAnimation}
-            >
+            <motion.div className="container_cards flex space-x-8" style={{ width: 'max-content' }}{...slideAnimation}>
                 {ibooks.map((book, index) => (
                     <div key={index} className="card_container">
-                        <div
-                            className={`card ${index === cardClick ? 'clicked' : ''} ${index === cardIndex ? 'active' : ''}`}
-                            onClick={() => handleCardClick(index)}
-                        >
-                            <img 
-                                src={book.coverUrl} 
-                                style={{ width: '100%', borderRadius: '10px' }} 
-                                
-                            />
+                        <div className={`card ${index === cardClick ? 'clicked' : ''} ${index === cardIndex ? 'active' : ''}`}
+                            onClick={() => handleCardClick(index)} >
+                            <img src={book.coverUrl} style={{ width: '100%', borderRadius: '10px' }} />
                             <h3>{book.volumeInfo.title}</h3>
                             <p>{book.volumeInfo.authors?.join(', ')}</p>
+                            <p>{book.volumeInfo.averageRating}</p>
                         </div>
                     </div>
                 ))}

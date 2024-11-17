@@ -83,23 +83,23 @@ export default function App() {
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: '#f5f3dc', zIndex: "5" }}
           >
-             <Conteiner_nav>
-                <ul>
-                  {Object.keys(itensNav).map((key) => (
-                    <li key={key}>
-                        <a href={`#${key}`} onClick={() => { setActiveName(key); resttiggleNav(); } } style={itemStyles(key)}>
-                          {itensNav[key]}
-                        </a>
-                    </li>
-                  ))}
-                </ul>
-            </Conteiner_nav>
+              <Conteiner_nav>
+                  <ul>
+                    {Object.keys(itensNav).map((key) => (
+                      <li key={key}>
+                          <a href={`#${key}`} onClick={() => { setActiveName(key); resttiggleNav(); } } style={itemStyles(key)}>
+                            {itensNav[key]}
+                          </a>
+                      </li>
+                    ))}
+                  </ul>
+              </Conteiner_nav>
             </motion.div>
           )
         }
         </AnimatePresence>
       <Conteiner_painel>
-        {renderPanelContent()}
+          {renderPanelContent()}
       </Conteiner_painel>
     </>
   );

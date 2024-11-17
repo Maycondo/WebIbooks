@@ -10,27 +10,21 @@ import { AiOutlineMore } from "react-icons/ai";
 
 
 
-
 export default function Toppanel() {
-  
-  const [showSettings, setshowSettings] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
+
+  const [activePanel, setActivePanel] = useState(null)
   const inputRef = useRef(null);
   const settingsRef = useRef(null);
   const searchRef = useRef(null);
 
-  const toggleSenttins = () => {
-    setshowSettings(!showSettings)
-  }
-
-  const toggleSearch = () => {
-    setShowSearch(!showSearch)
-  }
+  const togglePanel = (panel) => {
+    setActivePanel((prevPanel) => (prevPanel === panel ? null : panel));
+  };
 
   function FocusInput() {
     if(inputRef.current) {
       inputRef.current.focus()
-      toggleSearch()
+      togglePanel("search")
     }
   }
 
@@ -42,8 +36,7 @@ export default function Toppanel() {
         settingsRef.current &&
         !settingsRef.current.contains(e.target)
       ){
-        setShowSearch(false)
-        setshowSettings(false)
+        togglePanel(false)
       }
     };
 
@@ -57,8 +50,8 @@ export default function Toppanel() {
         <Topbar>
           <Inputsearch ref={searchRef}>
               <article onClick={() => FocusInput()} ><PiBooksFill/></article>
-                <input type="text" ref={inputRef} placeholder="Search your Ibook name, auhor, edition" onClick={toggleSearch}/>
-                {showSearch && (
+                <input type="text" ref={inputRef} placeholder="Search your Ibook name, auhor, edition" onClick={() => togglePanel("search")}/>
+                {activePanel === "search" && (
                     <motion.div initial="hidden" animate="visible" variants={{hidden: { opacity: 0, y: -20 },visible: { opacity: 1, y: 0, transition: { delay: 0.2 } }}}>
 
                     </motion.div>
@@ -68,13 +61,13 @@ export default function Toppanel() {
           <Perfiluser>
             <h1>Olá, João</h1>
               <img src="https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" alt="Profile" />
-                  <section onClick={toggleSenttins} ref={settingsRef}>
+                  <section onClick={() => togglePanel("settings")} ref={settingsRef}>
                     <AiOutlineMore />
                   </section>             
-                    {showSettings &&(
+                    {activePanel === "settings" && (
                       <motion.div initial="hidden" animate="visible" variants={{hidden: { opacity: 0, y: -20 },visible: { opacity: 1, y: 0, transition: { delay: 0.2 } }}}>
                           <ul>  
-                            <li>Perfil</li>
+                            <li onClick={() => togglePanel("perfil")}>Perfil</li>{ activePanel === "perfil" &&( <div style={{height: "400px", width: "400px", background: "red"}}>faeasfewefewgeerothr</div> )}
                             <li>Configurações</li>
                             <li>Sair</li>
                           </ul>
