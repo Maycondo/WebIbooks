@@ -40,7 +40,7 @@ export const Inputsearch = styled.div`
             font-size: 1.2rem;
             font-weight: bolder;
             background-color: #DEB887;
-            color: white;
+            color: #2c1810;
             z-index: 3;
         };
 

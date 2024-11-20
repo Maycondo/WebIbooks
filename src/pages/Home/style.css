@@ -4,7 +4,8 @@
   height: 47%;
   width: 100%;
   display: flex;
-
+  justify-content: center;
+  align-items: center;
 }
 
 .container_cards {
@@ -14,8 +15,8 @@
 }
 
 .card {
-    width: 250px;
-    height: 300px;
+    width: 240px;
+    height: 200px;
     text-align: center;
     padding: 15px;
     border-radius: 20px;
@@ -32,6 +33,7 @@
 }
   
   .card img {
+    width: 225px;
     height: 300px;
     object-fit: cover;
     cursor: pointer;
