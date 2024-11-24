@@ -1,5 +1,10 @@
+/* eslint-disable no-unused-vars */
+
+
 import Topbar, { Inputsearch , Perfiluser } from "./style.js"
+import axios from "axios";
 import { motion } from "framer-motion"
+import BookCard from "./BookCard";
 
 // React Server Components
 import { useRef, useState, useEffect } from 'react'
@@ -7,12 +12,46 @@ import { PiBooksFill } from "react-icons/pi";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineMore } from "react-icons/ai";
 
-
+const PANELS = {
+  search: 'search',
+  settings: "settings",
+}
 
 
 export default function Toppanel() {
 
-  const [activePanel, setActivePanel] = useState(null)
+  const [query, setQuery] = useState("");
+  const [searchBooks, setSearchBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
+  const [Error, setError] = useState(null)
+  const [activePanel, setActivePanel] = useState(null);     
+
+  useEffect(() => {
+    if (!query.trim()) return;
+
+    const fetchBooks = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+          const response = await axios.get(
+              `https://www.googleapis.com/books/v1/volumes?q=${query}`
+          );
+          setSearchBooks(response.data.items || []);
+        } catch (Error) {
+            setError("Erro ao buscar livros.");
+        } finally {
+            setIsLoading(false);
+      }
+
+    };
+
+    const delayDebounce = setTimeout(() => fetchBooks(), 500);
+
+    return () => clearTimeout(delayDebounce);
+  }, [query]);
+
+
   const inputRef = useRef(null);
   const settingsRef = useRef(null);
   const searchRef = useRef(null);
@@ -21,12 +60,10 @@ export default function Toppanel() {
     setActivePanel((prevPanel) => (prevPanel === panel ? null : panel));
   };
 
-  function FocusInput() {
-    if(inputRef.current) {
-      inputRef.current.focus()
-      togglePanel("search")
-    }
+  const handleInputChange = () => {
+      setQuery(inputRef.current.value)
   }
+
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -49,22 +86,29 @@ export default function Toppanel() {
         <>
         <Topbar>
           <Inputsearch ref={searchRef}>
-              <article onClick={() => FocusInput()} ><PiBooksFill/></article>
-                <input type="text" ref={inputRef} placeholder="Search your Ibook name, auhor, edition" onClick={() => togglePanel("search")}/>
-                {activePanel === "search" && (
-                    <motion.div initial="hidden" animate="visible" variants={{hidden: { opacity: 0, y: -20 },visible: { opacity: 1, y: 0, transition: { delay: 0.2 } }}}>
-
-                    </motion.div>
+              <article onClick={() => inputRef.current?.focus()} ><PiBooksFill/></article>
+                <input type="text" ref={inputRef} onChange={handleInputChange} placeholder="Search your Ibook name, auhor, edition" onClick={() => togglePanel(PANELS.search)}/>
+                {activePanel === PANELS.search && (
+                    <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
+                        {isLoading && <p>Carregando...</p>}{Error && <p className="error">{Error}</p>}
+                        {!isLoading && !Error && (
+                          <div className="book-list">
+                            {searchBooks.map((book, index) => (
+                              <BookCard key={index} book={book} />
+                            ))}
+                          </div>
                   )}
-              <button onClick={() => FocusInput()} ><FaSearch /></button>
+                  </motion.div>
+                )} 
+              <button onClick={() => inputRef.current?.focus()} ><FaSearch /></button>
           </Inputsearch>
           <Perfiluser>
             <h1>Olá, João</h1>
               <img src="https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" alt="Profile" />
-                  <section onClick={() => togglePanel("settings")} ref={settingsRef}>
+                  <section onClick={() => togglePanel(PANELS.settings)} ref={settingsRef}>
                     <AiOutlineMore />
                   </section>             
-                    {activePanel === "settings" && (
+                    {activePanel === PANELS.settings && (
                       <motion.div initial="hidden" animate="visible" variants={{hidden: { opacity: 0, y: -20 },visible: { opacity: 1, y: 0, transition: { delay: 0.2 } }}}>
                           <ul>  
                             <li onClick={() => togglePanel("perfil")}>Perfil</li>{ activePanel === "perfil" &&( <div style={{height: "400px", width: "400px", background: "red"}}>faeasfewefewgeerothr</div> )}
