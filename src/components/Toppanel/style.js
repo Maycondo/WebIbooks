@@ -40,7 +40,7 @@ export const Inputsearch = styled.div`
             font-size: 1.2rem;
             font-weight: bolder;
             background-color: #DEB887;
-            color: #2c1810;
+            color: #2c1810  ;
             z-index: 3;
         };
 
@@ -62,22 +62,9 @@ export const Inputsearch = styled.div`
             z-index: 3;
         }
 
-        div {
-            position: absolute;
-            top: 1%;
-            height:  40rem;
-            width: 75rem;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-            border-top-right-radius: 8%;
-            border-top-left-radius: 8%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            background-color: #F5F5DC;
-            display: flex;
-            align-items: center;
-            z-index: 2;
-        }
+
 `;
+
 
 export const Perfiluser = styled.div.attrs(() => ({
         'data-name': 'perfil-user'

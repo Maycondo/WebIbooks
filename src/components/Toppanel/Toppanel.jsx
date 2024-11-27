@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
-
-
 import Topbar, { Inputsearch , Perfiluser } from "./style.js"
 import axios from "axios";
 import { motion } from "framer-motion"
 import BookCard from "./BookCard";
+import "./Style.css"
+
 
 // React Server Components
 import { useRef, useState, useEffect } from 'react'
-import { PiBooksFill } from "react-icons/pi";
+import { PiBooksFill } from "react-icons/pi"; 
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineMore } from "react-icons/ai";
 
@@ -29,6 +29,7 @@ export default function Toppanel() {
   useEffect(() => {
     if (!query.trim()) return;
 
+    // Uma função assincrona para buscar organizar livros da API do Google Books
     const fetchBooks = async () => {
       setIsLoading(true);
       setError(null);
@@ -56,6 +57,7 @@ export default function Toppanel() {
   const settingsRef = useRef(null);
   const searchRef = useRef(null);
 
+  // Uma função que pegar um evento de click na div 
   const togglePanel = (panel) => {
     setActivePanel((prevPanel) => (prevPanel === panel ? null : panel));
   };
@@ -64,7 +66,7 @@ export default function Toppanel() {
       setQuery(inputRef.current.value)
   }
 
-
+  
   useEffect(() => {
     const handleClickOutside = (e) => {
 
@@ -89,19 +91,24 @@ export default function Toppanel() {
               <article onClick={() => inputRef.current?.focus()} ><PiBooksFill/></article>
                 <input type="text" ref={inputRef} onChange={handleInputChange} placeholder="Search your Ibook name, auhor, edition" onClick={() => togglePanel(PANELS.search)}/>
                 {activePanel === PANELS.search && (
-                    <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
-                        {isLoading && <p>Carregando...</p>}{Error && <p className="error">{Error}</p>}
-                        {!isLoading && !Error && (
-                          <div className="book-list">
-                            {searchBooks.map((book, index) => (
-                              <BookCard key={index} book={book} />
-                            ))}
+                  <div className="search-panel">
+                      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
+                          <div className="conteiner_livros">
+                            {isLoading && <p>Carregando...</p>}{Error && <p className="error">{Error}</p>}
+                            {!isLoading && !Error && (
+                              <div className="book-list">
+                                {searchBooks.map((book, id) => (
+                                  <BookCard key={book.id} book={book} />
+                                ))}
+                              </div>
+                              )}
                           </div>
-                  )}
-                  </motion.div>
+                    </motion.div>
+                  </div>
                 )} 
               <button onClick={() => inputRef.current?.focus()} ><FaSearch /></button>
           </Inputsearch>
+
           <Perfiluser>
             <h1>Olá, João</h1>
               <img src="https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" alt="Profile" />

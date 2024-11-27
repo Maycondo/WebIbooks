@@ -1,0 +1,55 @@
+  .search-panel {
+    position: absolute;
+    top: 1%;
+    height:  40rem;
+    width: 75rem;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 8%;
+    border-top-left-radius: 8%;
+    background-color: #F5F5DC;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+  
+  
+  
+  
+  .book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    justify-content: center; 
+    padding: 20px;
+    background-color: #f5f5dc;
+  }
+  
+  .card-container_serch {
+    height: 128px;
+    width: 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .card-container_serch h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+    padding: 0 5px; 
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap; 
+  }
+  
+  .card-container_serch p {
+    font-size: 12px;
+    color: #555;
+    margin: 3px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
