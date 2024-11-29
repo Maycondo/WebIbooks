@@ -94,9 +94,10 @@ export default function Toppanel() {
                   <div className="search-panel">
                       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
                           <div className="conteiner_livros">
-                            {isLoading && <p>Carregando...</p>}{Error && <p className="error">{Error}</p>}
+                            {isLoading && <p id="carregando">Carregando...</p>}{Error && <p className="error">{Error}</p>}
                             {!isLoading && !Error && (
                               <div className="book-list">
+                                {/* Aplicando um Map para returna os livros pesquisado pelo usuários */}
                                 {searchBooks.map((book, id) => (
                                   <BookCard key={book.id} book={book} />
                                 ))}
