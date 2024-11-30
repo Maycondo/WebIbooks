@@ -9,9 +9,7 @@ import "./style.css";
 
 const Panelhome = () => {
 
-    const [cardClick, setCardClick] = useState(null); 
-    const [cardIndex, setCardIndex] = useState(0);
-
+    const [selectedBook, setSelectedBook] = useState(null);
 
     const useFetchBooks = () => {
 
@@ -63,10 +61,6 @@ const Panelhome = () => {
     // Atribuindo o novo nome para Função que estar amarzenando a funcão assincrinar da API
     const ibooks = useFetchBooks()
 
-    const handleCardClick = (index) => {
-        setCardClick(index === cardIndex ? null : index);
-        setCardIndex(index);
-    };
 
     // Animaçao de loop infinito para os livros mais avaliados.
     const slideAnimation = {
@@ -92,15 +86,19 @@ const Panelhome = () => {
                 {/* Percorrendo API de livros com Map e voltando todos os valores para o cards. */}
                     {ibooks.map((book, index) => (
                         <div key={index} className="card_container">
-                            <div className={`card ${index === cardClick ? 'clicked' : ''} ${index === cardIndex ? 'active' : ''}`}
-                                onClick={() => handleCardClick(index)} >
-                                <img src={book.coverUrl} style={{ width: '100%', borderRadius: '10px' }} />
+                            <div className="card" onClick={() => setSelectedBook(book)}>
+                                <img src={book.coverUrl} style={{ width: '100%', borderRadius: '10px' }}/>
                                 <h3>{book.volumeInfo.title}</h3>
                                 <p>{book.volumeInfo.authors?.join(', ')}</p>
                                 <p>{book.volumeInfo.averageRating}</p>
                             </div>
                         </div>
                     ))}
+                    {// abrindo nova guia para ver mais sobre o livro.
+                    selectedBook && (<div>awccwcwafeefa</div>)
+                     
+                     
+                     }
             </motion.div>
         </>
     );
