@@ -5,10 +5,10 @@ import GlobalStyle, { Conteiner_nav, Conteiner_painel } from './style/style.js';
 import './style/style.css';
 import { useEffect, useState } from 'react';
 
-
+// Função com uma tar de Loading ao carregar a Website
 const useLoader = (delay) => {
   const [loading, setLoading] = useState(true);
-
+   
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), delay);
     return () => clearTimeout(timer);
@@ -38,14 +38,15 @@ export default function App() {
     color: activeName === key ? '#CD853F' : '#DEB887', 
   });
 
+  // Uma objeto que amazenar todos os valores da Navbar
   const itensNav = {
     Inicio: 'Inicio', 
     book: 'Livros',
-    heart: 'Favoritos',
+    heart: 'Favoritos', 
     settings: 'Configurações',
   };
 
-
+  // Função com Switch que retorna todos um painel diferente de acordo com Navbar
   const renderPanelContent = () => {
       switch (activeName) {
           case 'Inicio':

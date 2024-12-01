@@ -12,10 +12,10 @@ const BookCard = ({ book }) => {
 
   return (
     <div className="card-container_serch">
-      <img src={coverUrl} alt={`Capa do livro ${volumeInfo.title}`} />
-      <h3 className="book-title">{volumeInfo.title}</h3>
-      <p className="book-author">{volumeInfo.authors?.join(", ") || "Autor desconhecido"}</p>
-      <p className="book-rating">Avaliação: {volumeInfo.averageRating || "N/A"}</p>
+        <img src={coverUrl} alt={`Capa do livro ${volumeInfo.title}`} />
+        <h3 className="book-title">{volumeInfo.title}</h3>
+        <p className="book-author">{volumeInfo.authors?.join(", ") || "Autor desconhecido"}</p>
+        <p className="book-rating">Avaliação: {volumeInfo.averageRating || "N/A"}</p>
     </div>
   );
 };

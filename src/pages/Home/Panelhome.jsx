@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Textanimeiton from './Textsanimetion.jsx';
 import Toppanel from "../../components/Toppanel/Toppanel.jsx";
+import DescriptionIbook from './DescriptionBooks.jsx';
 import axios from "axios";
 import { motion } from 'framer-motion';
 import "./style.css";
@@ -8,7 +9,7 @@ import "./style.css";
 
 
 const Panelhome = () => {
-
+    // Hook para mostra a descrição do livro feita pelo usuário
     const [selectedBook, setSelectedBook] = useState(null);
 
     const useFetchBooks = () => {
@@ -29,6 +30,7 @@ const Panelhome = () => {
                     });
     
                     const booksWithRatings = response.data.items
+                        // Fitrando API de ibooks para returna em orde os mais valiados
                         .filter(book => book.volumeInfo.averageRating && book.volumeInfo.industryIdentifiers)
                         .map(book => {
                             const isbn = book.volumeInfo.industryIdentifiers[0]?.identifier;
@@ -86,7 +88,7 @@ const Panelhome = () => {
                 {/* Percorrendo API de livros com Map e voltando todos os valores para o cards. */}
                     {ibooks.map((book, index) => (
                         <div key={index} className="card_container">
-                            <div className="card" onClick={() => setSelectedBook(book)}>
+                            <div className="card" onClick={() => setSelectedBook(book, index)}>
                                 <img src={book.coverUrl} style={{ width: '100%', borderRadius: '10px' }}/>
                                 <h3>{book.volumeInfo.title}</h3>
                                 <p>{book.volumeInfo.authors?.join(', ')}</p>
@@ -94,12 +96,8 @@ const Panelhome = () => {
                             </div>
                         </div>
                     ))}
-                    {// abrindo nova guia para ver mais sobre o livro.
-                    selectedBook && (<div>awccwcwafeefa</div>)
-                     
-                     
-                     }
             </motion.div>
+            <DescriptionIbook selectedBook={selectedBook} onClose={() => setSelectedBook(null)}></DescriptionIbook>
         </>
     );
 };

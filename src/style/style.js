@@ -25,7 +25,7 @@ export default GlobaStyle;
 export const Conteiner_nav = styled.nav`
       
          height: 100%;
-         z-index: 5;
+         z-index: 7;
          width: 100%;
          position: fixed;
          background-color: #F5F5DC;

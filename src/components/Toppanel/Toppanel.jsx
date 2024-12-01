@@ -29,7 +29,7 @@ export default function Toppanel() {
   useEffect(() => {
     if (!query.trim()) return;
 
-    // Uma função assincrona para buscar organizar livros da API do Google Books
+    // Uma função assincrona para buscar de acordo com input livros da API do Google Books
     const fetchBooks = async () => {
       setIsLoading(true);
       setError(null);
