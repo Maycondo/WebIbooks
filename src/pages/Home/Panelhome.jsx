@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Textanimeiton from './Textsanimetion.jsx';
+import ReactStars from "react-rating-stars-component";
 import Toppanel from "../../components/Toppanel/Toppanel.jsx";
 import DescriptionIbook from './DescriptionBooks.jsx';
 import axios from "axios";
@@ -77,7 +78,8 @@ const Panelhome = () => {
                 },
             },
         },
-    };
+    };   
+
 
     return (
         <> 
@@ -92,7 +94,10 @@ const Panelhome = () => {
                                 <img src={book.coverUrl} style={{ width: '100%', borderRadius: '10px' }}/>
                                 <h3>{book.volumeInfo.title}</h3>
                                 <p>{book.volumeInfo.authors?.join(', ')}</p>
-                                <p>{book.volumeInfo.averageRating}</p>
+                                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                                    <p style={{ marginRight: "8px", alignItems: "center" }}>Avaliação:</p>
+                                    <ReactStars count={5} value={book.volumeInfo.averageRating} size={24} isHalf={true} edit={false}activeColor="#ffd700" />
+                                </div>
                             </div>
                         </div>
                     ))}

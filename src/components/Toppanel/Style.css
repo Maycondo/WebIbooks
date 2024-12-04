@@ -13,6 +13,7 @@
     align-items: center;
     z-index: 2;
   }
+  
   #carregando {
     position: relative;
     top: 50%;

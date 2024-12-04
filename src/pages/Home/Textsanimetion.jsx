@@ -25,7 +25,7 @@ const Textanimeiton = () => {
         const interval = setInterval(() => {
             setMensagensIndex((prev) => (prev + 1) % mensagens.length);
             setMensagensIndex2((prev) => (prev + 1) % mensagens2.length);
-        }, 6000);
+        }, 6500);
 
         return () => clearInterval(interval);
     }, [mensagens.length, mensagens2.length]);
