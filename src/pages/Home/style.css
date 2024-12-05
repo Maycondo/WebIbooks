@@ -65,29 +65,79 @@
     border-radius: 50px;
   }
 
-  .discreption {
+  .description_ibook button {
+    height: 50px;
+    width: 50px;
+    z-index: 4;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 2rem;
+    top: 2rem;
+    right: 3rem;
+    background-color:  #CD853F;
+    color: #090909;
+    border: none;
+  }
+
+
+  .Description {
     display: flex;
     flex-direction: column;
   }
 
-  .discreption h2 {
+  .div_buttons {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+  }
+
+  .share-button {
+    height: 25px;
+    width: 25px;
+    margin: 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all ease-out 1s;
+  }
+
+  .share-button:hover {
+    color: #CD853F;
+    transition: all ease-out 1ms;
+  }
+
+  .Heart-button {
+    height: 25px;
+    width: 25px;
+    margin: 1.5rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .Description h2 {
+    width: 80%;
     font-size: 3rem;
     font-weight: bolder;
-    margin: 2rem 0rem;
+    margin: 1rem 0rem;
     padding: 1rem 0rem;
   } 
 
-  .discreption p {
+  .Description p {
     font-size: 1.5rem;
     font-weight: 500;
     margin: 1rem;  
     padding: 0.5rem 0rem;
   }
 
-  .discreption h3, h4 {
+  .Description h3, h4 {
     margin: 0rem 1rem;  
     font-size: 1.5rem;
     font-weight: bolder;
   }
-
+  
+  
    
