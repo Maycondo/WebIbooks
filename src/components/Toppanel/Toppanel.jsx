@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import Topbar, { Inputsearch , Perfiluser } from "./style.js"
-import DescriptionIbook from '../../components/BooksDiscripetion/DescriptionBooks.jsx';
 import axios from "axios";
 import { motion } from "framer-motion"
 import BookCard from "./BookCard";
@@ -26,6 +25,7 @@ export default function Toppanel() {
   const [isLoading, setIsLoading] = useState(false)
   const [Error, setError] = useState(null)
   const [activePanel, setActivePanel] = useState(null);
+  
 
 
   useEffect(() => {
@@ -54,7 +54,6 @@ export default function Toppanel() {
     return () => clearTimeout(delayDebounce);
   }, [query]);
 
-
   const inputRef = useRef(null);
   const settingsRef = useRef(null);
   const searchRef = useRef(null);
@@ -68,7 +67,15 @@ export default function Toppanel() {
       setQuery(inputRef.current.value)
   }
 
-  
+  // Uma objeto que amazenar todos os valores d
+  const settingsPerfil = {
+    Perfil: "Perfil",
+    Configurações: "Configurações",
+    Sair: "Sair"
+  }
+
+
+
   useEffect(() => {
     const handleClickOutside = (e) => {
 
@@ -85,7 +92,6 @@ export default function Toppanel() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
   
-
     return (
         <>
         <Topbar>
@@ -100,15 +106,12 @@ export default function Toppanel() {
                             {!isLoading && !Error && (
                               <div className="book-list">
                                 {/* Aplicando um Map para returna os livros pesquisado pelo usuários */}
-                                {searchBooks.map((book, index) => (
-                                  <BookCard key={book.index} book={book}/>
-                                ))}
+                                {searchBooks.map((book, index) => (<BookCard key={book.index} book={book}/>))}
                               </div>
                               )}
                           </div>
                     </motion.div>
-                  </div>
-                )} 
+                  </div>)} 
               <button onClick={() => inputRef.current?.focus()} ><FaSearch /></button>
           </Inputsearch>
 
@@ -120,11 +123,13 @@ export default function Toppanel() {
                   </section>             
                     {activePanel === PANELS.settings && (
                       <motion.div initial="hidden" animate="visible" variants={{hidden: { opacity: 0, y: -20 },visible: { opacity: 1, y: 0, transition: { delay: 0.2 } }}}>
-                          <ul>  
-                            <li onClick={() => togglePanel("perfil")}>Perfil</li>{ activePanel === "perfil" &&( <div style={{height: "400px", width: "400px", background: "red"}}>faeasfewefewgeerothr</div> )}
-                            <li>Configurações</li>
-                            <li>Sair</li>
-                          </ul>
+                        <ul>
+                          {Object.keys(settingsPerfil).map((key) => {
+                            return (
+                              <li key={key}>{settingsPerfil[key]}</li>
+                            )
+                        })}
+                        </ul>
                       </motion.div>
                     )}
           </Perfiluser>

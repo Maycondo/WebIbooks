@@ -22,6 +22,7 @@ const BookCard = ({ book }) => {
           <p className="book-author">{volumeInfo.authors?.join(", ") || "Autor desconhecido"}</p>
           <p className="book-rating">Avaliação: {volumeInfo.averageRating || "N/A"}</p>
       </div>
+
       {selectedBook && (<DescriptionIbook selectedBook={selectedBook} onClose={() => setSelectedBook(null)}/>)}
     </>
   );
