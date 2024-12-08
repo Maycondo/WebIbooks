@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Textanimeiton from './Textsanimetion.jsx';
 import ReactStars from "react-rating-stars-component";
 import Toppanel from "../../components/Toppanel/Toppanel.jsx";
-import DescriptionIbook from './DescriptionBooks.jsx';
+import DescriptionIbook from '../../components/BooksDiscripetion/DescriptionBooks.jsx';
 import axios from "axios";
 import { motion } from 'framer-motion';
 import "./style.css";

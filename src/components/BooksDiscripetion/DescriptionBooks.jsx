@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaHeart } from "react-icons/fa";
 import { FaShareAlt } from "react-icons/fa";
-import "./style.css";
+import "./Style.css";
 
 
 
@@ -57,11 +57,13 @@ const DescriptionIbook = ({ selectedBook, onClose }) => {
                         <FaShareAlt className="share-button" onClick={handleButtonclickedSheder} style={{color: clickedSheder ? "#CD853F" : "black"}}></FaShareAlt>
                         <FaHeart className="Heart-button" onClick={handleButtonclicked} style={{color: isCLicked ? "#CD853F" : "black"}}></FaHeart>
                     </div>
-                    <h3>Author: {selectedBook.author?.join(", ")}</h3>
-                    <h4>Published:{selectedBook.published}</h4>
+                        <h3>Author: {selectedBook.author?.join(", ")}</h3>
+                        <h4>Published: {selectedBook.published}</h4>
                 </motion.div>
         </motion.div>
     );
 };
 
 export default DescriptionIbook;
+
+

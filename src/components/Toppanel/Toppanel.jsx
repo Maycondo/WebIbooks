@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Topbar, { Inputsearch , Perfiluser } from "./style.js"
+import DescriptionIbook from '../../components/BooksDiscripetion/DescriptionBooks.jsx';
 import axios from "axios";
 import { motion } from "framer-motion"
 import BookCard from "./BookCard";
@@ -24,7 +25,8 @@ export default function Toppanel() {
   const [searchBooks, setSearchBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
   const [Error, setError] = useState(null)
-  const [activePanel, setActivePanel] = useState(null);     
+  const [activePanel, setActivePanel] = useState(null);
+
 
   useEffect(() => {
     if (!query.trim()) return;
@@ -98,8 +100,8 @@ export default function Toppanel() {
                             {!isLoading && !Error && (
                               <div className="book-list">
                                 {/* Aplicando um Map para returna os livros pesquisado pelo usuários */}
-                                {searchBooks.map((book, id) => (
-                                  <BookCard key={book.id} book={book} />
+                                {searchBooks.map((book, index) => (
+                                  <BookCard key={book.index} book={book}/>
                                 ))}
                               </div>
                               )}
