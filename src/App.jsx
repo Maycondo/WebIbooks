@@ -1,6 +1,7 @@
 import Panelhome from "./pages/Home/Panelhome.jsx";
 import Loader from './components/Loader/Loader.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
+import CategoriaIbooks from "./pages/Ibooks/panelIbooks.jsx"
 import GlobalStyle, { Conteiner_nav, Conteiner_painel } from './style/style.js';
 import './style/style.css';
 import { useEffect, useState } from 'react';
@@ -52,7 +53,7 @@ export default function App() {
           case 'Inicio':
             return <Panelhome />;
           case 'book':
-            return <div>Livros Component</div>;
+            return <CategoriaIbooks/>
           case 'heart':
             return <div>Favoritos Component</div>;
           case 'settings':
