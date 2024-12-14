@@ -1,6 +1,33 @@
-
-
-.CARDROMANCE {
+.Panel_categoria {
     height: 100%;
     width: 100%;
+    display: flex;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_livros {
+    width: 14rem;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_livros img {
+    height: 300px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card_livros h3 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0.7rem;
 }

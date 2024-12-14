@@ -42,7 +42,7 @@ export default function App() {
   // Uma objeto que amazenar todos os valores da Navbar
   const itensNav = {
     Inicio: 'Inicio', 
-    book: 'Livros',
+    Categorias: 'Categorias',
     heart: 'Favoritos', 
     settings: 'Configurações',
   };
@@ -52,7 +52,7 @@ export default function App() {
       switch (activeName) {
           case 'Inicio':
             return <Panelhome />;
-          case 'book':
+          case 'Categorias':
             return <CategoriaIbooks/>
           case 'heart':
             return <div>Favoritos Component</div>;

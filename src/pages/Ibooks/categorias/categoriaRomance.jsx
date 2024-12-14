@@ -1,75 +1,64 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 
+import ReactStars from "react-rating-stars-component";
 import { useState, useEffect } from 'react';
+import "./style.css"
 
 
-function categoriaRomance() {
-  const useFetchBooks = () => {
-    const [Books, setBooks] = useState([]);
+function CategoriaRomance() {
+  const [books, setBooks] = useState([]);
 
-    useEffect(() => {
-      const fetchRomanceBooks = async () => {
-        try {
-          const response = await fetch(
-            'https://www.googleapis.com/books/v1/volumes?q=romance&orderBy=relevance&maxResults=40'
-          );
-          const data = await response.json();
+  useEffect(() => {
+    const fetchRomanceBooks = async () => {
+      try {
+        const response = await fetch(
+          'https://www.googleapis.com/books/v1/volumes?q=romance&orderBy=relevance&maxResults=22'
+        );
+        const data = await response.json();
+        const booksRomance = data.items
+          .filter((book) =>book.volumeInfo.industryIdentifiers)
+          .map((book) => {
+            const isbn = book.volumeInfo.industryIdentifiers[0]?.identifier;
 
-          const BooksRomance = data.items
-            .filter(
-              (book) =>
-                book.volumeInfo.categories?.includes("Romance") &&
-                book.volumeInfo.industryIdentifiers
-            )
-            .map((books) => {
-              const isbn = books.volumeInfo.industryIdentifiers[0]?.identifier;
+            const googleBooksExtraLarge = book.volumeInfo.imageLinks?.extraLarge || book.volumeInfo.imageLinks?.thumbnail;
+            const openLibraryCoverUrl = `https://covers.openlibrary.org/b/ISBN/${isbn}-L.jpg`;
+            const coverUrl = googleBooksExtraLarge || openLibraryCoverUrl;
 
-              const googleBooksExtraLarge =
-                books.volumeInfo.imageLinks?.extraLarge ||
-                books.volumeInfo.imageLinks?.thumbnail;
-              const openLibraryCoverUrl = `https://covers.openlibrary.org/b/ISBN/${isbn}-L.jpg`;
-              const coverUrl = googleBooksExtraLarge || openLibraryCoverUrl;
+            
 
-              return {
-                coverUrl,
-                title: books.volumeInfo.title,
-                subtitle: books.volumeInfo.subtitle,
-                authors: books.volumeInfo.authors?.join(', '),
-                price: books.saleInfo?.listPrice?.amount || 'N/A',
-                rating: books.volumeInfo.averageRating || 'No rating',
-              };
-            });
+            return {
+              coverUrl,
+              title: book.volumeInfo.title || "Título Desconhecido",
+              subtitle: book.volumeInfo.subtitle || "",
+              price: book.saleInfo?.listPrice?.amount || 'N/A',
+              rating: book.volumeInfo.averageRating || 0,
+            };
+          })
 
-          setBooks(BooksRomance);
-        } catch (error) {
-          console.error(error);
-        }
-      };
+          .sort((a , b) => b.rating - a.rating)
 
-      fetchRomanceBooks();
-    }, []);
+        setBooks(booksRomance);
+      } catch (error) {
+        console.error("Erro ao buscar livros:", error);
+      }
+    };
 
-    return Books;
-  };
-
-  const RomanceIbooks = useFetchBooks();
-
+    fetchRomanceBooks();
+  }, []);
+   
   return (
-    <div>
-      {RomanceIbooks.map((ibook, index) => (
-        <div key={index}>
-          <div>
-            <img src={ibook.coverUrl} alt={ibook.title} style={{ width: '100%', borderRadius: '10px' }}/>
-            <h2>{ibook.title}</h2>
-            <p>{ibook.price}</p>
-            <p>{ibook.subtitle}</p>
-            <p>{ibook.authors}</p>
-            <p>{ibook.rating}</p>
-          </div>
-        </div>
+    <div className="Panel_categoria">
+      {books.map((ibook, index) => (
+            <li className="card_livros" key={index}>
+                <img src={ibook.coverUrl} alt={ibook.title}/>
+                <h3>{ibook.title}</h3>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                    <p style={{ marginRight: "4px", alignItems: "center" }}>Avaliação:</p>
+                    <ReactStars count={5} value={ibook.rating} size={20} isHalf={true} edit={false} activeColor="#ffd700" />
+                </div>
+          </li>
       ))}
     </div>
   );
 }
 
-export default categoriaRomance;
+export default CategoriaRomance;
