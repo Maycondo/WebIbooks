@@ -4,17 +4,20 @@ import { useState, useEffect } from 'react';
 import "./style.css"
 
 
-function CategoriaRomance() {
+// eslint-disable-next-line react/prop-types
+function Categoria({selectedCategoria}) {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    const fetchRomanceBooks = async () => {
+    const fetchBooks = async () => {
+      if (!selectedCategoria) return;
+      
       try {
         const response = await fetch(
-          'https://www.googleapis.com/books/v1/volumes?q=romance&orderBy=relevance&maxResults=10'
+          `https://www.googleapis.com/books/v1/volumes?q=${selectedCategoria}&orderBy=relevance&maxResults=10`
         );
         const data = await response.json();
-        const booksRomance = data.items
+        const bookscategoria = data.items
           .filter((book) => book.volumeInfo.industryIdentifiers)
           .map((book) => {
             const isbn = book.volumeInfo.industryIdentifiers[0]?.identifier;
@@ -36,14 +39,14 @@ function CategoriaRomance() {
 
           .sort((a , b) => b.rating - a.rating)
 
-        setBooks(booksRomance);
+        setBooks(bookscategoria);
       } catch (error) {
         console.error("Erro ao buscar livros:", error);
       }
     };
 
-    fetchRomanceBooks();
-  }, []);
+    fetchBooks();
+  }, [selectedCategoria]);
    
   return (
     <div className="Panel_categoria">
@@ -61,4 +64,4 @@ function CategoriaRomance() {
   );
 }
 
-export default CategoriaRomance;
+export default Categoria;

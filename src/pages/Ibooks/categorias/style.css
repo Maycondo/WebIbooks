@@ -14,7 +14,7 @@
     border: 3px solid red;
     display: flex;
     overflow: hidden;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .card_livros img {

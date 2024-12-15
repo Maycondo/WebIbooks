@@ -18,16 +18,15 @@ export const DivCategory = styled.div`
 export const NavCategory = styled.nav`
     height: 100%;
     display: flex;
-    justify-content: end;
-    padding: 1rem;
+    padding: 2rem;
     gap: 0.5rem;
     flex-direction: column;
-    align-items: end;
 
 
     h2 {
         margin-top: 2.5rem;
         font-size: 1rem;
+        text-align: center;
         font-weight: bold;
         color: #2c1810;
     }
@@ -37,8 +36,6 @@ export const NavCategory = styled.nav`
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;    
         gap: 0.5rem;
         padding: 0;
         margin: 0;
@@ -54,7 +51,6 @@ export const NavCategory = styled.nav`
     }
 
     h3{
-        text-align: center;
         margin: 0.6rem;
         font-size: 1rem;
         font-weight: 900;

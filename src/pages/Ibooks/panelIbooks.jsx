@@ -1,17 +1,14 @@
 import { useState } from "react"
 import Toppanel from "../../components/Toppanel/Toppanel.jsx";
-import { ContainerCategory, DivCategory, NavCategory, CategoriaItem} from "./style.js"
+import { ContainerCategory, DivCategory, NavCategory, CategoriaItem } from "./style.js"
 
 
-
-// Categorias de livros 
-import CategoriaRomance from "./categorias/categoriaRomance"
-import CategoriaAventura from "./categorias/categoriaAventura"
+import Categoria from "./categorias/categoriaIbooks.jsx"
 
 const categorias = {
     LiteraturaFicção: {
-      Romance: <CategoriaRomance />,
-      Aventura: <CategoriaAventura/>,
+      Romance: "romance",
+      Aventura: "aventura",
       Biografia: "Biografia",
       Ficção: "Ficção",
       "Ficção Fantásia": "Ficção Fantásia",
@@ -72,7 +69,7 @@ function MainCategory () {
                         </div>
                     ))}
                     </NavCategory>
-                {renderCategoria()}
+                <Categoria selectedCategoria={renderCategoria()}></Categoria>
             </DivCategory>
         </ContainerCategory>
       );
