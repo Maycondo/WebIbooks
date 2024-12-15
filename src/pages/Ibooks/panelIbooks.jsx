@@ -6,11 +6,12 @@ import { ContainerCategory, DivCategory, NavCategory, CategoriaItem} from "./sty
 
 // Categorias de livros 
 import CategoriaRomance from "./categorias/categoriaRomance"
+import CategoriaAventura from "./categorias/categoriaAventura"
 
 const categorias = {
     LiteraturaFicção: {
       Romance: <CategoriaRomance />,
-      Aventura: "Aventura",
+      Aventura: <CategoriaAventura/>,
       Biografia: "Biografia",
       Ficção: "Ficção",
       "Ficção Fantásia": "Ficção Fantásia",

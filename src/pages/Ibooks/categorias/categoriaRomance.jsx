@@ -11,15 +11,15 @@ function CategoriaRomance() {
     const fetchRomanceBooks = async () => {
       try {
         const response = await fetch(
-          'https://www.googleapis.com/books/v1/volumes?q=romance&orderBy=relevance&maxResults=22'
+          'https://www.googleapis.com/books/v1/volumes?q=romance&orderBy=relevance&maxResults=10'
         );
         const data = await response.json();
         const booksRomance = data.items
-          .filter((book) =>book.volumeInfo.industryIdentifiers)
+          .filter((book) => book.volumeInfo.industryIdentifiers)
           .map((book) => {
             const isbn = book.volumeInfo.industryIdentifiers[0]?.identifier;
 
-            const googleBooksExtraLarge = book.volumeInfo.imageLinks?.extraLarge || book.volumeInfo.imageLinks?.thumbnail;
+            const googleBooksExtraLarge = book.volumeInfo.imageLinks?.thumbnail || book.volumeInfo.imageLinks?.extraLarge;
             const openLibraryCoverUrl = `https://covers.openlibrary.org/b/ISBN/${isbn}-L.jpg`;
             const coverUrl = googleBooksExtraLarge || openLibraryCoverUrl;
 
@@ -50,8 +50,8 @@ function CategoriaRomance() {
       {books.map((ibook, index) => (
             <li className="card_livros" key={index}>
                 <img src={ibook.coverUrl} alt={ibook.title}/>
-                <h3>{ibook.title}</h3>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "star" }}>
+                    <h3>{ibook.title}</h3>
                     <p style={{ marginRight: "4px", alignItems: "center" }}>Avaliação:</p>
                     <ReactStars count={5} value={ibook.rating} size={20} isHalf={true} edit={false} activeColor="#ffd700" />
                 </div>

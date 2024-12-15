@@ -9,7 +9,7 @@ export const ContainerCategory = styled.section`
 export default ContainerCategory;
 
 export const DivCategory = styled.div`
-    height: 120rem; 
+    height: 80rem; 
     width: 100%;
     display: flex;
     align-items: center; 
@@ -18,11 +18,11 @@ export const DivCategory = styled.div`
 export const NavCategory = styled.nav`
     height: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: end;
     padding: 1rem;
     gap: 0.5rem;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
 
 
     h2 {
@@ -30,6 +30,18 @@ export const NavCategory = styled.nav`
         font-size: 1rem;
         font-weight: bold;
         color: #2c1810;
+    }
+
+    ul {
+        margin: 0%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+        gap: 0.5rem;
+        padding: 0;
+        margin: 0;
     }
 
     li {
@@ -53,7 +65,7 @@ export const NavCategory = styled.nav`
 
 export const CategoriaItem = styled.li`
     color: ${({ isSelected }) => (isSelected ? "#CD853F" : "#2c1810")};
-    border-left: ${({ isSelected }) => (isSelected ? "solid 3px #2c1810" : "none")};
+    border-left: ${({ isSelected }) => (isSelected ? "solid 3px #2c1810" : "none")};    
     cursor: pointer;
     font-weight: ${({ isSelected }) => (isSelected ? "bold" : "normal")};
     transition: background-color 0.2s, color 0.2s;

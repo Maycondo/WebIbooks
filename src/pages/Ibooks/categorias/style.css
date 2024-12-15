@@ -1,26 +1,26 @@
 .Panel_categoria {
-    height: 100%;
-    width: 100%;
     display: flex;
-    margin-top: 2rem;
     flex-wrap: wrap;
-    overflow: hidden;
     justify-content: center;
-    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    gap: 0.8rem;
+    overflow: hidden;
 }
 
 .card_livros {
-    width: 14rem;
-    height: 400px;
+    height: 300px;
+    width: 500px;
+    border: 3px solid red;
     display: flex;
-    flex-direction: column;
     overflow: hidden;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .card_livros img {
     height: 300px;
+    width: 200px;
+    object-fit: cover;
     border-radius: 5px;
     cursor: pointer;
 }

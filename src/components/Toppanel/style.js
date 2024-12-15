@@ -126,16 +126,14 @@ export const Perfiluser = styled.div.attrs(() => ({
             z-index: 2;
         }
 
+
         ul {
-            margin: 0%;
-            width: 100%;
+            padding: 0;
+            margin: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 0.5rem;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            align-items: center;
         }
 
         li {
