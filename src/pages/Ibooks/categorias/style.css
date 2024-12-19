@@ -1,20 +1,28 @@
 .Panel_categoria {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.Panel_categoria_books {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: 1px solid #ccc;
     border-radius: 10px;
     gap: 0.8rem;
     overflow: hidden;
 }
 
+
 .card_livros {
     height: 300px;
     width: 500px;
-    border: 3px solid red;
+    border-radius: 10px;
     display: flex;
     overflow: hidden;
     justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .card_livros img {
@@ -26,8 +34,41 @@
 }
 
 .card_livros h3 {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 600;
     text-align: center;
     margin: 0.7rem;
+}
+
+.AboutBook {
+    height: auto;
+    margin: 1rem;
+    gap: 3.7rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card_evaluation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.see_more {
+    background-color: #2c1810;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.see_more a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 900;
 }

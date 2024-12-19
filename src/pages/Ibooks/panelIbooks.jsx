@@ -57,17 +57,17 @@ function MainCategory () {
           <Toppanel />
             <DivCategory>
                     <NavCategory>
-                    <h2 className="MenuTitle">CATEGORIAS</h2>
-                    {Object.entries(categorias).map(([section, items]) => (
-                        <div key={section}>
-                        <h3>{section}</h3>
-                            <ul>
-                                {Object.keys(items).map((key) => (
-                                    <CategoriaItem key={key} onClick={() => setSelectedCategoria(key)} isSelected={selectedCategoria === key}>{key}</CategoriaItem>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
+                        <h2 className="MenuTitle">CATEGORIAS</h2>
+                            {Object.entries(categorias).map(([section, items]) => (
+                                <div key={section}>
+                                <h3>{section}</h3>
+                                    <ul>
+                                        {Object.keys(items).map((key) => (
+                                            <CategoriaItem key={key} onClick={() => setSelectedCategoria(key)} isSelected={selectedCategoria === key}>{key}</CategoriaItem>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
                     </NavCategory>
                 <Categoria selectedCategoria={renderCategoria()}></Categoria>
             </DivCategory>
