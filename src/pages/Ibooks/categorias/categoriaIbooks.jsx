@@ -4,7 +4,7 @@ import "./style.css"
 
 
 // eslint-disable-next-line react/prop-types
-function Categoria({selectedCategoria}) {
+function Categoria({ selectedCategoria }) {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -63,7 +63,7 @@ function Categoria({selectedCategoria}) {
                           <ReactStars count={5} value={ibook.rating} size={30} isHalf={true} edit={false} activeColor="#ffd700" />
                         </div>
                         <div style={{display: "flex", justifyContent: "center"}}>
-                          <button className="see_more"><a href="" target="_blank">ver mais</a></button>   
+                            <button className="see_more"><a href="" target="_blank">ver mais</a></button>   
                         </div>
                     </div>
               </li>
