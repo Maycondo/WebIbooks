@@ -63,7 +63,7 @@ function MainCategory () {
                                 <h3>{section}</h3>
                                     <ul>
                                         {Object.keys(items).map((key) => (
-                                            <CategoriaItem key={key} onClick={() => setSelectedCategoria(key)} isSelected={selectedCategoria === key}>{key}</CategoriaItem>
+                                            <CategoriaItem key={key} onClick={() => setSelectedCategoria(key)} isSelected={ selectedCategoria === key }>{key}</CategoriaItem>
                                         ))}
                                     </ul>
                                 </div>

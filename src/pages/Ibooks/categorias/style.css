@@ -1,9 +1,4 @@
-.Panel_categoria {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.8rem;
-}
+
 
 .Panel_categoria_books {
     display: flex;
@@ -22,6 +17,7 @@
     display: flex;
     overflow: hidden;
     justify-content: space-between;
+    background-color: #ffe0b7;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 

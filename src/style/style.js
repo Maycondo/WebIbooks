@@ -85,4 +85,3 @@ export const Conteiner_painel = styled.div`
       display: flex;
       flex-direction: column; 
 `;
-

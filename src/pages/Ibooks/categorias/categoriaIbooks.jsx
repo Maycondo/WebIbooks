@@ -1,5 +1,6 @@
 import ReactStars from "react-rating-stars-component";
 import { useState, useEffect } from 'react';
+import Div_categoria from './style.js'
 import "./style.css"
 
 
@@ -48,28 +49,28 @@ function Categoria({ selectedCategoria }) {
   }, [selectedCategoria]);
    
   return (
-    <div className="Panel_categoria">
-        <div>
-          <h2>Ibooks para voce!</h2> <p></p>
+    <Div_categoria>
+          <div>
+            <h2>Ibooks para voce!</h2> <p></p>
+          </div>
+          <div className="Panel_categoria_books">
+            {books.map((ibook, index) => (
+                  <li className="card_livros" key={index}>
+                      <img src={ibook.coverUrl} alt={ibook.title}/>
+                      <div className="AboutBook" >
+                          <h3>{ibook.title}</h3>
+                          <div className="card_evaluation">
+                            <p style={{ marginRight: "4px", alignItems: "center" }}>Avaliação:</p>
+                            <ReactStars count={5} value={ibook.rating} size={30} isHalf={true} edit={false} activeColor="#ffd700" />
+                          </div>
+                          <div style={{display: "flex", justifyContent: "center"}}>
+                              <button className="see_more"><a href="" target="_blank">ver mais</a></button>   
+                          </div>
+                      </div>
+                </li>
+            ))}
         </div>
-        <div className="Panel_categoria_books">
-          {books.map((ibook, index) => (
-                <li className="card_livros" key={index}>
-                    <img src={ibook.coverUrl} alt={ibook.title}/>
-                    <div className="AboutBook" >
-                        <h3>{ibook.title}</h3>
-                        <div className="card_evaluation">
-                          <p style={{ marginRight: "4px", alignItems: "center" }}>Avaliação:</p>
-                          <ReactStars count={5} value={ibook.rating} size={30} isHalf={true} edit={false} activeColor="#ffd700" />
-                        </div>
-                        <div style={{display: "flex", justifyContent: "center"}}>
-                            <button className="see_more"><a href="" target="_blank">ver mais</a></button>   
-                        </div>
-                    </div>
-              </li>
-          ))}
-      </div>
-    </div>
+    </Div_categoria>
   );
 }
 

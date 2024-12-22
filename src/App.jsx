@@ -28,7 +28,7 @@ export default function App() {
     setNavAnimation(!navAnimation);
   };
 
-  const resttiggleNav = () => {
+  const resetToggleNav = () => {
     setNavAnimation(false);
   }
 
@@ -83,7 +83,7 @@ export default function App() {
                   <ul>
                     {Object.keys(itensNav).map((key) => (
                       <li key={key}>
-                          <a href={`#${key}`} onClick={() => { setActiveName(key); resttiggleNav(); } } style={itemStyles(key)}>
+                          <a href={`#${key}`} onClick={() => { setActiveName(key); resetToggleNav() }} style={ itemStyles(key) }>
                             {itensNav[key]}
                           </a>
                       </li>
@@ -91,8 +91,7 @@ export default function App() {
                   </ul>
               </Conteiner_nav>
             </motion.div>
-          )
-        }
+          )}
         </AnimatePresence>
       <Conteiner_painel>
           {renderPanelContent()}
