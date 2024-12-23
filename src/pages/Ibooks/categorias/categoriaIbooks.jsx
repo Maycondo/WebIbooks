@@ -1,8 +1,10 @@
 import ReactStars from "react-rating-stars-component";
 import { useState, useEffect } from 'react';
-import Div_categoria from './style.js'
+import{ Div_categoria, Panel_categoria_books, Card_livros } from './style.js'
 import "./style.css"
 
+import { AiFillAppstore } from "react-icons/ai";
+import { AiOutlineAppstore } from "react-icons/ai";
 
 // eslint-disable-next-line react/prop-types
 function Categoria({ selectedCategoria }) {
@@ -50,12 +52,16 @@ function Categoria({ selectedCategoria }) {
    
   return (
     <Div_categoria>
-          <div>
-            <h2>Ibooks para voce!</h2> <p></p>
+          <div className="Barra_superior">
+            <h2>For You!</h2>
+              <div>
+                <button><AiFillAppstore /></button>
+                <button><AiOutlineAppstore /></button>
+              </div>
           </div>
-          <div className="Panel_categoria_books">
+        <Panel_categoria_books>
             {books.map((ibook, index) => (
-                  <li className="card_livros" key={index}>
+                  <Card_livros key={index}>
                       <img src={ibook.coverUrl} alt={ibook.title}/>
                       <div className="AboutBook" >
                           <h3>{ibook.title}</h3>
@@ -67,9 +73,9 @@ function Categoria({ selectedCategoria }) {
                               <button className="see_more"><a href="" target="_blank">ver mais</a></button>   
                           </div>
                       </div>
-                </li>
+                </Card_livros>
             ))}
-        </div>
+        </Panel_categoria_books>
     </Div_categoria>
   );
 }
