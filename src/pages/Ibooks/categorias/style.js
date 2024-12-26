@@ -11,14 +11,6 @@ export const Div_categoria = styled.div`
 `
 export default Div_categoria
 
-export const Panel_categoria_books = styled.section`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-radius: 10px;
-    gap: 0.8rem;
-    overflow: hidden;
-`
 
 export const Card_livros = styled.li`
     height: 300px;
@@ -30,6 +22,10 @@ export const Card_livros = styled.li`
     background-color: #ffe0b7;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 
+`
+
+export const Button = styled.button`
+    
 `
 
 

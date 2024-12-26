@@ -6,6 +6,33 @@
     align-items: center;
 }
 
+.Panel_categoria_books {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .grid_view {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .list_view {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Card_livros {
+    width: 200px;
+  }
+  
+  .list_view .Card_livros {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+
 .card_livros img {
     height: 300px;
     width: 200px;

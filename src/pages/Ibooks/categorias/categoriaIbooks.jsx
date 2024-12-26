@@ -1,6 +1,6 @@
 import ReactStars from "react-rating-stars-component";
 import { useState, useEffect } from 'react';
-import{ Div_categoria, Panel_categoria_books, Card_livros } from './style.js'
+import{ Div_categoria, Card_livros } from './style.js'
 import "./style.css"
 
 import { AiFillAppstore } from "react-icons/ai";
@@ -9,6 +9,8 @@ import { AiOutlineAppstore } from "react-icons/ai";
 // eslint-disable-next-line react/prop-types
 function Categoria({ selectedCategoria }) {
   const [books, setBooks] = useState([]);
+  const [isGridView , setIsGridView] = useState(true)
+
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -49,17 +51,17 @@ function Categoria({ selectedCategoria }) {
 
     fetchBooks();
   }, [selectedCategoria]);
-   
+
   return (
     <Div_categoria>
           <div className="Barra_superior">
             <h2>For You!</h2>
               <div>
-                <button><AiFillAppstore /></button>
-                <button><AiOutlineAppstore /></button>
+                <button onClick={() => setIsGridView(true)} style={{ color: isGridView ? "red" :  "blue" }}><AiFillAppstore/></button>
+                <button onClick={() => setIsGridView(false)}><AiOutlineAppstore/></button>
               </div>
           </div>
-        <Panel_categoria_books>
+        <div className={isGridView  ? "Panel_categoria_books grid_view" :  "Panel_categoria_books list_view"}>
             {books.map((ibook, index) => (
                   <Card_livros key={index}>
                       <img src={ibook.coverUrl} alt={ibook.title}/>
@@ -75,7 +77,7 @@ function Categoria({ selectedCategoria }) {
                       </div>
                 </Card_livros>
             ))}
-        </Panel_categoria_books>
+        </div>
     </Div_categoria>
   );
 }
