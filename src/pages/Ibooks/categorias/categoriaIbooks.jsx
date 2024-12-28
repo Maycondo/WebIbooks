@@ -9,8 +9,7 @@ import { AiOutlineAppstore } from "react-icons/ai";
 // eslint-disable-next-line react/prop-types
 function Categoria({ selectedCategoria }) {
   const [books, setBooks] = useState([]);
-  const [isGridView , setIsGridView] = useState(true)
-
+  const [isGridView , setIsGridView] = useState()
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -18,7 +17,7 @@ function Categoria({ selectedCategoria }) {
       
       try {
         const response = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=${selectedCategoria}&orderBy=relevance&maxResults=10`
+          `https://www.googleapis.com/books/v1/volumes?q=${selectedCategoria}&orderBy=relevance&maxResults=2`
         );
         const data = await response.json();
         const bookscategoria = data.items
@@ -57,8 +56,8 @@ function Categoria({ selectedCategoria }) {
           <div className="Barra_superior">
             <h2>For You!</h2>
               <div>
-                <button onClick={() => setIsGridView(true)} style={{ color: isGridView ? "red" :  "blue" }}><AiFillAppstore/></button>
-                <button onClick={() => setIsGridView(false)}><AiOutlineAppstore/></button>
+                <button onClick={() => setIsGridView(true)} style={{ color: isGridView ? "blue" :  "red" }}><AiFillAppstore/></button>
+                <button onClick={() => setIsGridView(false)} style={{ color: !isGridView ? "blue" :  "red" }}><AiOutlineAppstore/></button>
               </div>
           </div>
         <div className={isGridView  ? "Panel_categoria_books grid_view" :  "Panel_categoria_books list_view"}>
