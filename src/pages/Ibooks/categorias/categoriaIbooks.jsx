@@ -1,6 +1,6 @@
 import ReactStars from "react-rating-stars-component";
 import { useState, useEffect } from 'react';
-import{ Div_categoria, Card_livros } from './style.js'
+import{ Div_categoria} from './style.js'
 import "./style.css"
 
 import { AiFillAppstore } from "react-icons/ai";
@@ -17,7 +17,7 @@ function Categoria({ selectedCategoria }) {
       
       try {
         const response = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=${selectedCategoria}&orderBy=relevance&maxResults=2`
+          `https://www.googleapis.com/books/v1/volumes?q=${selectedCategoria}&orderBy=relevance&maxResults=9`
         );
         const data = await response.json();
         const bookscategoria = data.items
@@ -55,26 +55,26 @@ function Categoria({ selectedCategoria }) {
     <Div_categoria>
           <div className="Barra_superior">
             <h2>For You!</h2>
-              <div>
-                <button onClick={() => setIsGridView(true)} style={{ color: isGridView ? "blue" :  "red" }}><AiFillAppstore/></button>
-                <button onClick={() => setIsGridView(false)} style={{ color: !isGridView ? "blue" :  "red" }}><AiOutlineAppstore/></button>
+              <div className="Buttons_Style_categoria">
+                <button onClick={() => setIsGridView(true)} style={{ color: isGridView ? "#2c1810" :  "#CD853F" }}><AiFillAppstore/></button>
+                <button onClick={() => setIsGridView(false)} style={{ color: !isGridView ? "#2c1810" :  "#CD853F" }}><AiOutlineAppstore/></button>
               </div>
           </div>
         <div className={isGridView  ? "Panel_categoria_books grid_view" :  "Panel_categoria_books list_view"}>
             {books.map((ibook, index) => (
-                  <Card_livros key={index}>
+                  <div className={isGridView  ? "Card_descrition_on" :  "Card_descrition_of"} key={index}>
                       <img src={ibook.coverUrl} alt={ibook.title}/>
                       <div className="AboutBook" >
                           <h3>{ibook.title}</h3>
                           <div className="card_evaluation">
                             <p style={{ marginRight: "4px", alignItems: "center" }}>Avaliação:</p>
-                            <ReactStars count={5} value={ibook.rating} size={30} isHalf={true} edit={false} activeColor="#ffd700" />
+                            <ReactStars count={5} value={ibook.rating} size={27} isHalf={true} edit={false} activeColor="#ffd700" />
                           </div>
                           <div style={{display: "flex", justifyContent: "center"}}>
                               <button className="see_more"><a href="" target="_blank">ver mais</a></button>   
                           </div>
                       </div>
-                </Card_livros>
+                </div>
             ))}
         </div>
     </Div_categoria>

@@ -10,6 +10,26 @@
     display: flex;
     gap: 20px;
   }
+
+  .Buttons_Style_categoria {
+    height: 4rem;
+    width: 7rem;
+    gap: 1rem;
+    display: flex;
+    border-radius: 5px;
+  }
+
+  .Buttons_Style_categoria button {
+    height: 3rem;
+    width: 6rem;
+    font-size: 1.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d8ab7f;
+    border: none;
+    border-radius: 5px;
+  }
   
   .grid_view {
     flex-wrap: wrap;
@@ -17,22 +37,38 @@
   }
   
   .list_view {
-    flex-direction: column;
+    flex-wrap: wrap;
+
+    gap: 2rem;
+    overflow: hidden;
     align-items: center;
+    transition: all 90ms ease;
   }
   
   .Card_livros {
     width: 200px;
   }
-  
+
+  .Card_descrition_on {
+    height: 300px;
+    width: 500px;
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    background-color: #ffe0b7;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    transition: all 90ms ease;
+  }
+
   .list_view .Card_livros {
+    height: 100%;
     width: 100%;
     display: flex;
     gap: 20px;
     align-items: center;
   }
   
-
 .card_livros img {
     height: 300px;
     width: 200px;
@@ -42,10 +78,9 @@
 }
 
 .card_livros h3 {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 500;
     text-align: center;
-    margin: 0.7rem;
 }
 
 .AboutBook {
@@ -80,3 +115,33 @@
     font-size: 0.8rem;
     font-weight: 900;
 }
+
+
+  .Card_descrition_of {
+    height: 500px;
+    width: 200px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .Card_descrition_of .AboutBook {
+    height: auto;
+    margin: 1rem;
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .Card_descrition_of .AboutBook .card_evaluation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
