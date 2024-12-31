@@ -66,7 +66,7 @@ export const Inputsearch = styled.div`
 `;
 
 
-export const Perfiluser = styled.div.attrs(() => ({
+export const Settinguser = styled.div.attrs(() => ({
         'data-name': 'perfil-user'
 }))`
         width: 20%;

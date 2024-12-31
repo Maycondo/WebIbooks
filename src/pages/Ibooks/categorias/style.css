@@ -23,6 +23,7 @@
     height: 3rem;
     width: 6rem;
     font-size: 1.9rem;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +39,6 @@
   
   .list_view {
     flex-wrap: wrap;
-
     gap: 2rem;
     overflow: hidden;
     align-items: center;
@@ -78,7 +78,8 @@
 }
 
 .card_livros h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    overflow: hidden;
     font-weight: 500;
     text-align: center;
 }
@@ -116,11 +117,21 @@
     font-weight: 900;
 }
 
-
   .Card_descrition_of {
     height: 500px;
     width: 200px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .Card_descrition_of img {
+    height: 500px;
+    width: 200px;
+    border-radius: 10px;
+    object-fit: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;

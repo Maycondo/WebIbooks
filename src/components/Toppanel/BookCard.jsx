@@ -3,7 +3,7 @@
 import {useState} from 'react';
 import React from "react";
 import DescriptionIbook from '../../components/BooksDiscripetion/DescriptionBooks.jsx';
-import "./Style.css";
+import "./style.css";
 
 
 const BookCard = ({ book }) => {

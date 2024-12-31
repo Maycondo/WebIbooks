@@ -26,20 +26,22 @@ function Categoria({ selectedCategoria }) {
             const isbn = book.volumeInfo.industryIdentifiers[0]?.identifier;
 
             const googleBooksExtraLarge = book.volumeInfo.imageLinks?.thumbnail || book.volumeInfo.imageLinks?.extraLarge;
-            const openLibraryCoverUrl = `https://covers.openlibrary.org/b/ISBN/${isbn}-L.jpg`;
+            const openLibraryCoverUrl = isbn?`https://covers.openlibrary.org/b/ISBN/${isbn}-L.jpg` : null;
             const coverUrl = googleBooksExtraLarge || openLibraryCoverUrl;
 
             
 
-            return {
-              coverUrl,
-              title: book.volumeInfo.title || "Título Desconhecido",
-              subtitle: book.volumeInfo.subtitle || "",
-              price: book.saleInfo?.listPrice?.amount || 'N/A',
-              rating: book.volumeInfo.averageRating || 0,
-            };
+            return coverUrl
+              ? {
+                coverUrl,
+                title: book.volumeInfo.title || "Título Desconhecido",
+                subtitle: book.volumeInfo.subtitle || "",
+                price: book.saleInfo?.listPrice?.amount || "N/A",
+                rating: book.volumeInfo.averageRating || 0,
+              }
+            : null;
           })
-
+          .filter((book) => book !== null) 
           .sort((a , b) => b.rating - a.rating)
 
         setBooks(bookscategoria);
@@ -68,7 +70,7 @@ function Categoria({ selectedCategoria }) {
                           <h3>{ibook.title}</h3>
                           <div className="card_evaluation">
                             <p style={{ marginRight: "4px", alignItems: "center" }}>Avaliação:</p>
-                            <ReactStars count={5} value={ibook.rating} size={27} isHalf={true} edit={false} activeColor="#ffd700" />
+                            <ReactStars count={5} value={ibook.rating} size={22} isHalf={true} edit={false} activeColor="#ffd700" />
                           </div>
                           <div style={{display: "flex", justifyContent: "center"}}>
                               <button className="see_more"><a href="" target="_blank">ver mais</a></button>   
